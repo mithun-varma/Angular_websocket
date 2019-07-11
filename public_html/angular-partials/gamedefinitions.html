@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->     
+    <game-filter filter-data="lobbyController"></game-filter>    
+    <div class="tab_grid" id="{{::lobbyController.display_grid_id}}">       
+        <table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="5" ng-if="lobbyController.gridDisplay === 'POOL-BOX'" id="{{::lobbyController.display_grid_table_id}}">
+            <tr class="tab_clr">
+                <td>Game Type</td>
+                <td class="bet_pad">Bet</td>
+                <td>Max Players</td>
+                <td>Total Players</td>
+                <td>Status</td>
+                <td>Reg Table</td>
+                <td>Join</td>
+            </tr>
+            <tr ng-repeat="game in lobbyController.game_details track by game._definitionId" ng-class="{'tr_active':game._definitionId==lobbyController.selectedRow}" ng-class-odd="'tab_clr1'" ng-class-even="'tab_clr2'" id="{{::game._definitionId}}" ng-click="lobbyController.displayGameInfo(game._definitionId)">
+                <td>{{::game.getGameTypeDescription()}}</td>
+                <td class="bet_pad">{{::game._bet}}</td>
+                <td>{{::game._maxPlayerCount}}</td>                                                
+                <td>{{game._runningTableCount}}</td>
+                <td>{{game.getStatus()}}</td>
+                <td>{{game.getRegisteringTableCount()}}</td>
+                <td><a href="#" id="btnAdd" class="btn join_btn" ng-click="lobbyController.joinGame(game._definitionId)"> Join </a></td>
+            </tr>            
+            <!--<tr ng-repeat="i in lobbyController.get_empty_records(lobbyController.no_empty_records) track by $index" ng-class-odd="'tab_clr1'" ng-class-even="'tab_clr2'" ng-show="lobbyController.displayEmptyRecords">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>                
+            </tr>-->
+        </table>
+        <table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="5" ng-if="lobbyController.gridDisplay === 'Stake'" id="{{::lobbyController.display_grid_table_id}}">
+            <tr class="tab_clr">
+                 <td>Game Type</td>
+                <td class="bet_pad">Bet</td>
+                <td>Min Buyin</td>
+                 <td>Max Players</td>
+                <td>Total Players</td>
+                <td>Status</td>
+                <td>Reg Table</td>
+                <td>Join</td>
+            </tr>
+            <tr ng-repeat="game in lobbyController.game_details track by game._definitionId" ng-class="{'tr_active':game._definitionId==lobbyController.selectedRow}" ng-class-odd="'tab_clr1'" ng-class-even="'tab_clr2'" id="{{::game._definitionId}}" ng-click="lobbyController.displayGameInfo(game._definitionId)">
+                <td>{{::game.getJokerType()}}</td>
+                <td class="bet_pad">{{::game._bet}}</td>
+                <td>{{::game._minBuyIn}}</td> 
+                <td>{{::game._maxPlayerCount}}</td>                                                
+                <td>{{game._runningTableCount}}</td>
+                <td>{{game.getStatus()}}</td>
+                <td>{{game.getRegisteringTableCount()}}</td>
+                <td><a href="#" id="btnAdd" class="btn join_btn" ng-click="lobbyController.joinGame(game._definitionId)"> Join </a></td>
+            </tr>                      
+        </table>
+        
+        <table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="5" ng-if="lobbyController.gridDisplay === 'Tourney'" id="{{::lobbyController.display_grid_table_id}}">
+            <tr class="tab_clr">
+                <td>Trny ID</td>
+                <td class="bet_pad">Entry</td>
+                <td>Cash Prize</td>
+                <td>Start Date</td>
+                <td>Description</td>
+                <td>Players</td>
+                <td>Details</td>
+            </tr>            
+            <tr ng-repeat="game in lobbyController.game_details track by game.tourneyName" ng-class="{'tr_active':game.tourneyName==lobbyController.selectedRow}" ng-class-odd="'tab_clr1'" ng-class-even="'tab_clr2'" id="{{::game.tourneyName}}" ng-click="lobbyController.displayTourneyInfo(game.tourneyName)">
+                <td>{{::game.tourneyName}}</td>
+                <td class="bet_pad">{{::game.displayEntry}}</td>
+                <td>{{::game.totalPrize}}</td>                                                
+                <td>{{game.startDate}}</td>
+                <td>{{::game.description}}</td>
+                <td>{{game.getPlayerCount()}}</td>                
+                <td><button type="button" value="">{{game.status}}</button></td>
+            </tr>                      
+        </table>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<!--<div ng-if="lobbyController.gridDisplay === 'Stake'">
+    <game-filter filter-data="lobbyController"></game-filter>
+    <div class="tab_grid">
+        <table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr class="tab_clr">
+                <td>Game Type</td>
+                <td class="bet_pad">Bet</td>
+                <td>Min Buyin</td>
+                <td>Max Players</td>
+                <td>Total Players</td>
+                <td>Status</td>
+                <td>Reg Table</td>
+                <td>Join</td>
+            </tr>
+            <tr ng-repeat="game in lobbyController.game_details track by game._definitionId"  ng-class-odd="'tab_clr1'" ng-class-even="'tab_clr2'" id="{{::game._definitionId}}">
+                <td>{{::game.getJokerType()}}</td>
+                <td class="bet_pad">{{::game._bet}}</td>
+                <td>{{::game._minBuyIn}}</td>
+                <td>{{::game._maxPlayerCount}}</td>                                                
+                <td>{{game._runningTableCount}}</td>
+                <td>{{game.getStatus()}}</td>
+                <td>{{game.getRegisteringTableCount()}}</td>
+                <td><img src="images/join_btn.png" alt="Join"></td>
+            </tr>              
+        </table>
+    </div>
+</div>
+<!--<div ng-if="lobbyController.gridDisplay === 'TOURNEY'">
+    <game-filter filter-data="lobbyController"></game-filter>
+    <div class="tab_grid">
+       <table class="table-bordered" width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr class="tab_clr">
+                <td>Trny ID</td>
+                <td class="bet_pad">Entry</td>
+                <td>Cash Prize</td>
+                <td>Start Date</td>
+                <td>Discription</td>
+                <td>Players</td>
+                <td>Details</td>
+            </tr>
+            <tr ng-repeat="game in lobbyController.game_details track by game._definitionId" ng-class-odd="'tab_clr1'" ng-class-even="'tab_clr2'" id="{{::game._definitionId}}">
+                <td>{{::game._gameType}}</td>
+                <td class="bet_pad">{{::game._bet}}</td>
+                <td>{{::game._maxPlayerCount}}</td>                                                
+                <td>{{game._runningTableCount}}</td>
+                <td>{{game.getStatus()}}</td>
+                <td>{{game.getRegisteringTableCount()}}</td>
+                <td><img src="images/join_btn.png" alt="Join"></td>
+            </tr>                      
+        </table>
+    </div>
+</div>-->

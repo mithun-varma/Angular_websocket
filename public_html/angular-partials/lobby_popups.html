@@ -1,0 +1,44 @@
+<div id="login" class="modal fade" data-backdrop="static" data-keyboard="false" aria-hidden="true">
+    
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close(false)" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Login</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" id="loginForm" name="loginfm" method="post">                                    
+                    <!--USERNAME-->
+                    <div class="input-group form-group">                         
+                        <input type="text" class="form-control" aria-describedby="basic-addon1" 
+                        name="user" id="userid" placeholder="Nickname" ng-model="modalCtrl.userid"  
+                        data-mini="true" maxlength="12">
+                    </div>                      
+                    <!--USERNAME END-->
+                    
+                    <!--PASSWORD-->
+                    <div class="input-group form-group eyechange">                    
+                        <input type="password" class="form-control" aria-describedby="basic-addon1" 
+                        data-mini="true" maxlength="20"  name="passw" id="mpwd" placeholder="Password" 
+                        ng-model="modalCtrl.password">                       
+                    </div>                   
+                    <!--PASSWORD END--> 
+                    
+                    <div class="er_div error" ng-bind="modalCtrl.errorMessage"></div>   
+                    <div id="btn_marg5" class="alignCenter form-group pading_t25">
+                        <button type="button" class="btn org_btn " ng-click="modalCtrl.doLogin()"> LOGIN </button>
+                    </div>
+                    <div class="text-center forgatPassword">
+                        <a href="mforgotpassword.html" id="link_forgotpassword" class="forgatPassword bold">Forgot Password?</a>
+                    </div>
+                    <div>
+                        <div>
+                            <input type="checkbox" id="remember" name="remember_me"  class="chkbox" style="float:right;">Remember me                          
+                        </div>
+                        <a href="mforgotpassword.html" id="link_forgotpassword" class="forgatPassword bold">Sign up</a>
+                    </div>
+                </form>                
+            </div>            
+        </div>
+    </div>
+</div>

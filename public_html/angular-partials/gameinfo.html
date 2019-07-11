@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="game_1">
+    <div class="gameinfo_icon"><img src="images/gameinfo.png"  alt="Game Info"></div>
+    <div class="gameinfo_cont"> Game Information</div>
+</div>
+<div ng-if="gameInfo.gameCategeory == 'pool'">
+    <div class="game_2">
+        <table align="center" width="60%">
+            <tr>
+                <td  width="40%">Bet</td>
+                <td width="50%">Players</td>
+            </tr>
+            <tr class="betregi_clr">
+                <td >{{gameInfo.gameDetails.bet}}</td>
+                <td >{{gameInfo.gameDetails.registering_count}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="gametype_main">
+        <div class="gametype">{{gameInfo.gameDetails.game_type}}</div>
+        <div class="gametype2">{{gameInfo.gameDetails.game_variant}} Game - {{gameInfo.gameDetails.status}}</div>
+    </div>
+    <div class="game_3">
+        <table>
+            <tr class="player_id">
+                <td>Players</td>
+            </tr>
+            <tr ng-repeat="player in gameInfo.gameDetails.game_players track by $index" ng-class-odd="'player_td_clr'" ng-class-even="'player_td_clr2'">
+                <td>{{player}}</td>
+            </tr>           
+        </table>
+    </div>
+</div>
+<div ng-if="gameInfo.gameCategeory == 'tourney'">
+    <div ng-if="gameInfo.gameDetails['is_pool_tourney'] == true">
+        <div class="game_2">
+            <table align="center" width="60%">
+                <tr>
+                    <td  width="40%">TourneyID - </td>
+                    <td width="50%">{{gameInfo.gameDetails.tourney_name}}</td>
+                </tr>           
+            </table>
+        </div>
+        <div class="gametype_main">
+            <div class="gametype">{{gameInfo.gameDetails.tourney_name}}</div>
+            <div class="gametype2">{{gameInfo.gameDetails.status}}</div>
+        </div>
+        <div class="game_3">
+            <table>
+                <tr class="betregi_clr">
+                    <td >Format - </td>
+                    <td >{{gameInfo.gameDetails.poolType}}</td>
+                </tr>
+                <tr class="betregi_clr">
+                    <td >Entry - </td>
+                    <td >{{gameInfo.gameDetails.entry}}</td>
+                </tr>
+                <tr class="betregi_clr">
+                    <td >Rejoin</td>
+                    <td >{{gameInfo.gameDetails.rejoinAmount}}</td>
+                </tr> 
+                <tr class="betregi_clr">
+                    <td >No of Winners - </td>
+                    <td >{{gameInfo.gameDetails.totalWinners}}</td>
+                </tr> 
+                <tr class="betregi_clr">
+                    <td >Prize for each Winner - </td>
+                    <td >{{gameInfo.gameDetails.eachplayerPrize}}</td>
+                </tr> 
+            </table>
+        </div>
+    </div>    
+    <div ng-if="gameInfo.gameDetails['is_pool_tourney'] == false">
+        <div class="game_2">
+            <table align="center" width="60%">
+                <tr>
+                    <td  width="40%">Entry</td>
+                    <td width="50%">Cash Prize</td>
+                </tr>
+                <tr class="betregi_clr">
+                    <td >{{gameInfo.gameDetails.entry}}</td>
+                    <td >{{gameInfo.gameDetails.cash_prize}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="gametype_main">
+            <div class="gametype">{{gameInfo.gameDetails.tourney_name}}</div>
+            <div class="gametype2">{{gameInfo.gameDetails.status}}</div>
+        </div>
+        <div class="game_3">
+            <table>
+                <tr class="player_id">
+                    <td>Level</td>
+                    <td>Schedule</td>
+                </tr>
+                <tr ng-repeat="level in gameInfo.gameDetails.game_levels track by $index" ng-class-odd="'player_td_clr'" ng-class-even="'player_td_clr2'">                
+                    <td>{{level.level}}</td>                
+                    <td>{{level.get_level_info()}}</td>                
+                </tr>           
+            </table>
+        </div>
+    </div>
+</div>

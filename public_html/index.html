@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Ace2Thee Lobby</title>
+<link rel="stylesheet" href="css/960.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="fontface/stylesheet.css">
+<link rel="stylesheet" href="css/master.css">
+<script language="javascript" type="text/javascript"> 
+ if ("WebSocket" in window)
+            {                             
+            // Let us open a web socket
+            var ws = new WebSocket("ws://localhost:26000/websocket");         
+          ws.onopen = function (evt)
+         {            
+             alert("Message is send");
+         };
+         ws.onmessage = function (evt)
+         {
+             var received_msg = evt.data;
+             alert("Message is received...");
+         };
+
+         ws.onclose = function ()
+         {
+             // websocket is closed.
+             alert("Connection is closed...");
+         };
+     }
+
+     else
+     {
+         // The browser doesn't support WebSocket
+         alert("WebSocket NOT supported by your Browser!");
+     }
+
+
+
+
+
+//myObj.render();
+
+
+// -->
+</script>
+<script type="text/javascript" src="scripts/jquery-1.9.1.js"></script>
+</head>
+<body>
+<div class="container_12 lobby tab-content acetab">
+ <a href="popupex.html" onclick="return popitup('game.html')">Link to popup</a>
+</div>
+</body>
+</html>

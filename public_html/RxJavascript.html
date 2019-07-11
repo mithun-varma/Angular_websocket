@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="scripts/jquery.js"></script>
+        <script type="text/javascript" src="scripts/rx.all.js"></script>
+        <script type="text/javascript" src="scripts/rx.async.js"></script>
+
+        <script>
+            var input = document.getElementById('input');            
+            /*var resObservable = req.flatMap(function(reqUrl){
+               return Rx.Observable.fromPromise(jQuery.getJSON(reqUrl)); 
+            });
+            resObservable.subscribe(function(response){
+                console.log(response);                           
+            });*/
+            /*req.subscribe(function(requestUrl) {               
+            var responseStream = Rx.Observable.create(function (observer) {
+                jQuery.getJSON(requestUrl)
+                .done(function(response) {                     
+                    observer.onNext(response); 
+                })
+                .fail(function(jqXHR, status, error) { observer.onError(error); })
+                .always(function() { observer.onCompleted(); });
+            });
+            responseStream.subscribe(function(response) {
+                console.log(response);
+            });
+            });*/
+        $(document).ready(function () {
+            var refreshButton = document.querySelector('.refresh'); 
+            //var req = Rx.Observable.just('https://api.github.com/users');
+            /*req = req.flatMap(function(reqUrl){
+                return Rx.Observable.fromPromise(jQuery.getJSON(reqUrl));
+            });*/
+            var refreshObservable = Rx.Observable.fromEvent(refreshButton, 'click');
+            var refresh = refreshObservable.startWith('startup click')
+                    .map(function(event){   
+                        console.log("1");
+                var randomOffset = Math.floor(Math.random()*500);
+                return "https://api.github.com/users?since="+randomOffset;
+            }).
+            flatMap(function(responseUrl){
+                    console.log("2");
+                return Rx.Observable.fromPromise(jQuery.getJSON(responseUrl));
+            });
+            var suggestionStream = refresh.map(function(listUsers) {
+                console.log("3");
+                // get one random user from the list
+                return listUsers[Math.floor(Math.random()*listUsers.length)];
+            }).merge(refreshObservable.map(function(){                
+                return null; 
+            })).startWith(null);
+            
+            /*refresh.map(function(){
+                return null;
+            });*/
+            
+            /*var multiReqStream = Rx.Observable.merge(req,refresh);
+            multiReqStream.subscribe(function(response){
+                console.log(response);               
+            });*/           
+            suggestionStream.subscribe(function(response){
+                console.log(response);               
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <input type="text" id="input" >
+        <button type="button" class="refresh" id="refresh" value="refresh">refresh</button>
+    </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="tab_top">       
+    <div class="filter">        
+        <span class="chk1"><img src="images/filter.png" alt="Filter"></span> <span class="chk2">FILTERS</span> 
+    </div>
+    <div class="view_chk">         
+        <span class="chk3">
+            <input type="checkbox" id="{{::filter.game_type+filter.lobbyData.viewAll}}" ng-model="filters.viewAll" class="checkbox" ng-change="filter.filterGameDetails(filter.lobbyData.viewAll)" />
+            <label for="{{::filter.game_type+filter.lobbyData.viewAll}}"> &nbsp;</label>
+        </span> <span class="chk4">View All</span> 
+    </div>
+    <div class="player_chk" ng-if="filter.filter_display === 'POOL'"> 
+        <span class="chk4">Players:</span>
+        <span class="chk3">                
+            <input type="checkbox" id="{{::filter.game_type+filter.lobbyData.two_player}}" ng-model="filters.two_player" class="checkbox" ng-change="filter.filterGameDetails(filter.lobbyData.two_player)"/>
+            <label for="{{::filter.game_type+filter.lobbyData.two_player}}"> &nbsp;</label>
+        </span> 
+        <span class="chk5">2</span> 
+        <span class="chk3">
+            <input type="checkbox" id="{{::filter.game_type+filter.lobbyData.six_player}}" ng-model="filters.six_player" class="checkbox" ng-change="filter.filterGameDetails(filter.lobbyData.six_player)"/>
+            <label for="{{::filter.game_type+filter.lobbyData.six_player}}"> &nbsp;</label>
+        </span> 
+        <span class="chk5">6</span> 
+    </div>
+    <!--BOX -->
+    <div class="player_chk" ng-if="filter.filter_display === 'BOX'"> 
+        <span class="chk4">Players:</span>
+        <span class="chk3">
+            <input type="checkbox" id="{{::filter.game_type+filter.lobbyData.BO2}}" ng-model="filters.BO2"  class="checkbox" ng-change="filter.filterGameDetails(filter.lobbyData.BO2)" />
+            <label for="{{::filter.game_type+filter.lobbyData.BO2}}"> &nbsp;</label>
+        </span> 
+        <span class="chk5">Best Of 2</span> 
+        <span class="chk3">
+            <input type="checkbox" id="{{::filter.game_type+filter.lobbyData.BO3}}" ng-model="filters.BO3"  class="checkbox" ng-change="filter.filterGameDetails(filter.lobbyData.BO3)" />
+            <label for="{{::filter.game_type+filter.lobbyData.BO3}}"> &nbsp;</label>
+        </span> 
+        <span class="chk5">Best Of 3</span> 
+    </div>
+    <!-- Stake -->    
+    <div class="player_chk" ng-if="filter.filter_display === 'Stake'"> 
+        <span class="chk4">Players:</span> 
+        <span class="chk3">
+            <input type="checkbox" id="{{::filter.game_type+filter.lobbyData.two_player}}" ng-model="filters.two_player" class="checkbox" ng-change="filter.filterGameDetails(filter.lobbyData.two_player)"/>
+            <label for="{{::filter.game_type+filter.lobbyData.two_player}}"> &nbsp;</label>
+        </span> 
+        <span class="chk5">2</span> 
+        <span class="chk3">
+            <input type="checkbox" id="{{::filter.game_type+filter.lobbyData.six_player}}" ng-model="filters.six_player" class="checkbox" ng-change="filter.filterGameDetails(filter.lobbyData.six_player)"/>
+            <label for="{{::filter.game_type+filter.lobbyData.six_player}}"> &nbsp;</label>
+        </span> 
+        <span class="chk5">6</span>
+        <span class="chk3">
+            <input type="checkbox" id="{{::filter.game_type+filter.lobbyData.nine_player}}" ng-model="filters.nine_player" class="checkbox" ng-change="filter.filterGameDetails(filter.lobbyData.nine_player)"/>
+            <label for="{{::filter.game_type+filter.lobbyData.nine_player}}"> &nbsp;</label>
+        </span> 
+        <span class="chk5">9</span>
+    </div>
+    <!-- Tourney -->
+    <div class="player_chk" ng-if="filter.filter_display === 'Tourney'">        
+        <span class="chk3">                
+            <input type="checkbox" id="{{::filter.game_type+filter.lobbyData.registered}}" ng-model="filters.registered" class="checkbox" ng-change="filter.filterGameDetails(filter.lobbyData.registered)"/>
+            <label for="{{::filter.game_type+filter.lobbyData.registered}}"> &nbsp;</label>
+        </span> 
+        <span class="chk5">Registered</span> 
+        <span class="chk3">
+            <input type="checkbox" id="{{::filter.game_type+filter.lobbyData.exclude_mobile}}" ng-model="filters.exclude_mobile" class="checkbox" ng-change="filter.filterGameDetails(filter.lobbyData.exclude_mobile)"/>
+            <label for="{{::filter.game_type+filter.lobbyData.exclude_mobile}}"> &nbsp;</label>
+        </span> 
+        <span class="chk5">Exclude Mobile Trny</span> 
+    </div>
+    <div class="bet_chk" ng-if="filter.bets_display === true"> 
+        <span class="chk4">Bet:</span> 
+        <span class="chk3">
+            <input type="checkbox" id="{{::filter.game_type+filter.lobbyData.low_bet}}" ng-model="filters.low_bet" class="checkbox" ng-change="filter.filterGameDetails(filter.lobbyData.low_bet)"/>
+            <label for="{{::filter.game_type+filter.lobbyData.low_bet}}"> &nbsp;</label>
+        </span> 
+        <span class="chk5">Low</span> 
+        <span class="chk3">               
+            <input type="checkbox" id="{{::filter.game_type+filter.lobbyData.medium_bet}}" ng-model="filters.medium_bet" class="checkbox" ng-change="filter.filterGameDetails(filter.lobbyData.medium_bet)"/>
+            <label for="{{::filter.game_type+filter.lobbyData.medium_bet}}"> &nbsp;</label>                 
+        </span> 
+        <span class="chk5">Medium</span> 
+        <span class="chk3">
+            <input type="checkbox" id="{{::filter.game_type+filter.lobbyData.high_bet}}" ng-model="filters.high_bet" class="checkbox" ng-change="filter.filterGameDetails(filter.lobbyData.high_bet)"/>
+            <label for="{{::filter.game_type+filter.lobbyData.high_bet}}"> &nbsp;</label>
+        </span> 
+        <span class="chk5">High</span> 
+    </div>
+</div>

@@ -1,0 +1,205 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+body{font-family: 'segoeui';}
+#gifcontainer{
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    z-index: 1000;
+    width:100%;
+    height: 100%;
+    /*                margin-left:42%;
+                    margin-top:38%;*/
+
+}
+#lobbyAniamtionCanvas{
+    vertical-align: middle;
+    margin: auto;
+    align-content: center;
+    /*                padding-left: 100px;
+                    padding-top:  200px;*/
+
+}
+#canvas{
+    /*                position: relative;
+                    vertical-align: middle;
+                    margin: auto;
+                    align-content: center;
+                    padding-left: 100px;
+                     padding-top:  200px;*/
+}
+#phaserGame{
+    position: absolute;
+}
+span{
+    display:block;
+
+    position:absolute;
+    color:white;
+    top:60%;
+    left:30%;
+}
+#myModal { 
+    position:absolute;
+    font-family: 'segoeui';
+    display: none; /* Hidden by default */
+    /*position: fixed;  Stay in place */
+    z-index: 1;  /*Sit on top */
+    /*padding-top: 100px;  Location of the box */
+    /*left: 0;*/
+    /*top: 0;*/
+    /*width: 100%;  Full width*/ 
+    /*height: 100%;  Full height */
+    overflow: hidden;  /*Enable scroll if needed */
+    /*                background-color: rgb(0,0,0);  Fallback color */
+    /*background-color: rgb(0,0,0);*/
+    background-color: rgba(1,1,1,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-content {font-family: 'segoeui'; border: 1px solid #777676; border-radius: 10px;    background-color: #212121;   position: absolute; left:2%; padding-bottom: 5px; right: 2%; bottom:auto; top:2%; overflow: hidden;}
+
+/*            .sliderContent { display: none; font-family: 'segoeui'; border: 1px solid #777676; border-radius: 10px;    background-color: #212121;   position: absolute; left:12%; padding-bottom: 5px; right: 12%; bottom:auto; top:0.5%; height:40%; overflow: hidden;}*/
+.sliderContent { display: none; font-family: 'segoeui'; border: 1px solid #777676; border-radius: 10px;    background-color: #212121;   position: absolute; left:12%; padding-bottom: 5px; right: 12%; bottom:auto; top:0.5%; height:30%; overflow: hidden;}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold; padding: 0px 16px 0px 5px;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.rp_gray_btn{font-family: 'segoeui'; cursor: pointer; padding: 3px 20px 5px 20px; border: 1px solid #909090; border-radius: 5px; font-size: 16px; letter-spacing: 2px; font-weight: normal; color: #fff;
+             background: rgba(76,76,76,1);
+             background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(19,19,19,1) 78%, rgba(19,19,19,1) 100%);
+             background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(76,76,76,1)), color-stop(78%, rgba(19,19,19,1)), color-stop(100%, rgba(19,19,19,1)));
+             background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(19,19,19,1) 78%, rgba(19,19,19,1) 100%);
+             background: -o-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(19,19,19,1) 78%, rgba(19,19,19,1) 100%);
+             background: -ms-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(19,19,19,1) 78%, rgba(19,19,19,1) 100%);
+             background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(19,19,19,1) 78%, rgba(19,19,19,1) 100%);
+             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0 );}
+.rp_pop1{font-family: 'segoeui';width: 100%; float: left; color: #fff; border-bottom: 1px solid #777676;
+         background: rgba(175,0,0,1);
+         background: -moz-linear-gradient(top, rgba(175,0,0,1) 0%, rgba(84,19,19,1) 100%);
+         background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(175,0,0,1)), color-stop(100%, rgba(84,19,19,1)));
+         background: -webkit-linear-gradient(top, rgba(175,0,0,1) 0%, rgba(84,19,19,1) 100%);
+         background: -o-linear-gradient(top, rgba(175,0,0,1) 0%, rgba(84,19,19,1) 100%);
+         background: -ms-linear-gradient(top, rgba(175,0,0,1) 0%, rgba(84,19,19,1) 100%);
+         background: linear-gradient(to bottom, rgba(175,0,0,1) 0%, rgba(84,19,19,1) 100%);
+         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#af0000', endColorstr='#541313', GradientType=0 );}
+.rp_red_btn{font-family: 'segoeui';cursor: pointer; padding: 3px 20px 5px 20px; border: 1px solid #8f8383; border-radius: 5px; font-size: 16px; letter-spacing: 2px; font-weight: normal; color: #fff;
+            background: rgba(173,10,9,1);
+            background: -moz-linear-gradient(top, rgba(173,10,9,1) 0%, rgba(95,2,3,1) 100%);
+            background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(173,10,9,1)), color-stop(100%, rgba(95,2,3,1)));
+            background: -webkit-linear-gradient(top, rgba(173,10,9,1) 0%, rgba(95,2,3,1) 100%);
+            background: -o-linear-gradient(top, rgba(173,10,9,1) 0%, rgba(95,2,3,1) 100%);
+            background: -ms-linear-gradient(top, rgba(173,10,9,1) 0%, rgba(95,2,3,1) 100%);
+            background: linear-gradient(to bottom, rgba(173,10,9,1) 0%, rgba(95,2,3,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ad0a09', endColorstr='#5f0203', GradientType=0 );}
+.rp_t1{float: left; font-size: 15px; color: #fff; padding:5px 10px 5px 10px; width: auto; font-weight: bold;}
+.rp_textarea_div{margin: auto;  padding: 10px; text-align: center;}
+/*.sliderText_div{background-color: #cccccc;text-align: center; height:60%; position: absolute; top:40px; left: 2px; right: 2px}*/
+.sliderText{ font-family: 'segoeui'; font-size: 13px; padding-top: 4px; background: transparent; border: none; color: white; text-align: center; left: 4px; right: 4px; top:42px; position: absolute;width: 98%;height: 61%;overflow: auto}
+.rp_textarea{font-family: 'segoeui'; width:99%; padding: 3px; margin: 10px auto;text-align: left; resize: none; border-radius:5px; border: 0; outline: none};
+.clear{clear: both;}
+
+
+html{
+    touch-action: manipulation;
+    /*touch-action: none;*/
+    /*                 touch-action: pan-y pinch-zoom;*/
+    /*                  touch-action: pan-x;
+                      touch-action: pan-y;
+                      touch-action: manipulation;*/
+
+}
+body{
+    touch-action: pan-y;
+}
+.changePassword{position: absolute;color: white;}
+.changePassword .fade.in {opacity: 1;background: #121111;margin: 0 auto;height: 75%;top: 17%;}
+.changePassword .modal-header{padding: 5px;background: transparent;border: none;background: #121111;margin-bottom: -2px;}
+.changePassword .modal-footer a{text-decoration: underline;}
+.changePassword .modal-body{text-align: center;background: #121111;}
+.changePassword .modal-content{margin-top: 30%;font-family: 'segoeui';border:none;background:transparent;position: absolute;border-radius: none;
+                               left: 0%;padding-bottom: 5px;right: 0%;bottom:none;top: 0%;overflow: hidden;width: 100%;box-shadow: none;}
+/*.changePassword #changePasswordButton{background: transparent;display: none;}*/
+.loginPageButton{font-size: 20px;background: url(../assets/images/generic/red.png);background-repeat: no-repeat;background-position: center;border: none;color: white;padding: 10px 30px;border-radius: 5px;outline: none;}
+.loginPageButton:active{background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ce0100), color-stop(1, #fe1a00));
+                        background:-moz-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+                        background:-webkit-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+                        background:-o-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+                        background:-ms-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+                        background:linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
+                        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce0100', endColorstr='#fe1a00',GradientType=0);
+                        background-color:#ce0100;position:relative;top:1px;border: none;color: white;padding: 10px 30px;border-radius: 5px;outline: none;}
+.passwordSubmitEnabled{font-size: 20px;background: radial-gradient(ellipse at center, rgb(4, 75, 3) 0%, rgb(10, 151, 51) 100%);background-repeat: no-repeat;background-position: center;border: none;color: white;padding: 5px 25px;border-radius: 5px;outline: none;}
+.passwordSubmitEnabled:active{-webkit-box-shadow: 3px 3px 5px 3px #000000;box-shadow: 3px 3px 5px 3px #000000;background:radial-gradient(ellipse at center, rgb(4, 75, 3) 0%, rgb(10, 151, 51) 100%);position:relative;top:2px;border: none;color: white;padding: 5px 25px;border-radius: 5px;outline: none;}
+.changePassword .loginPageButton,.changePassword .loginPageButton:active{padding: 5px 20px;outline: none;color: white;}
+#passwordErrorMessage{color:red;text-align: center;margin-top: 3%;}
+.changePassword input{background: transparent;border: none;}
+.input-group{background: url('../assets/images/lobby/input_text_bg.png') no-repeat center;background-size: 100% 100%;}
+.changePassword span{position: relative;top: 0%;left:0%;border: none;}
+.input-group-addon {font-size: 14px;font-weight: normal;line-height: 1;color: #8c8d8e;text-align: center;background-color: #1f2124;border-radius: 4px;
+                    width: 25%;z-index: 5;margin-top: -5%;border-radius: 0px 10px 10px 0px;}
+.input-group input{border-radius: 10px 0px 0px 10px;height: 40px;}
+.changePassword .modal-footer{text-align: center;font-size: 15px;border: none;margin-top: 0%;}
+.changePassword .close {color: white;margin-right: 10px;outline: none;border: none;background: transparent;}
+#changePasswordGuidelinesModal .modal-body{text-align: left;height: 225px;overflow-y: auto;}
+#changePasswordGuidelinesModal .loginPageButton{padding: 0px 25px;}
+.changePassword a{color: #00d3f4;text-decoration: underline;border: none;outline: none;}
+#passwordACKModal .loginPageButton{padding: 5px 10px;border-radius: 5px;}
+::-webkit-scrollbar {width: 3px;}
+
+/* Track */
+::-webkit-scrollbar-track {border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {background: white;border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {background: #b30000;}
+.changePassword .input-group{border: 2px solid #1f1e1e;border-radius: 10px;margin: 0 auto;}
+.changePassword .form-control:focus {-webkit-box-shadow: none;/*inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);*/box-shadow:none; 
+                                     /*inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);*/}
+
+.submitDisabled {font-size: 20px;background: radial-gradient(ellipse at center, rgb(36, 38, 36) 0%, rgb(62, 62, 62) 100%);background-repeat: no-repeat;
+    background-position: center;border: none;color: white;padding: 5px 25px;border-radius: 5px;outline: none;}
+.modal-backdrop.in {
+	opacity: 0.9;
+}
+@media screen and (max-width: 1500px) and (min-width: 1024px) {
+    .rp_textarea{height: 200px; font-size: 18px}
+    .sliderText{height: auto; font-size: 18px; padding-top: 20px}
+    .rp_gray_btn{padding: 10px 25px; font-size: 20px;}
+    .rp_red_btn{padding: 10px 25px; font-size: 20px;} 
+    .rp_t1{font-size: 18px; padding:10px 10px 7px 15px;} 
+    .close{padding: 3px 25px 5px 5px;} 
+    .changePassword .modal-content{margin-top: 0%;}
+     .changePassword .fade.in {opacity: 1;background: #121111;margin: 0 auto;height: 75%;top: 17%;}
+}
+@media screen and (max-width:1024px) and (min-width:701px) {
+    /*.rp_textarea{height: 150px;}*/ 
+    .rp_textarea{height: 100px;} 
+    .sliderText{height: 150px;}
+    /*.sliderContent{height: 60%}*/ 
+    .changePassword .modal-content{margin-top: 0%;}
+    .changePassword .fade.in {opacity: 1;background: #121111;margin: 0 auto;height: 65%;top: 23%;}
+}
+@media screen and (max-width:700px) and (min-width: 320px) {
+    .rp_textarea{height: auto;}
+    .sliderText{height: auto;}
+    .changePassword .modal-content{margin-top: 8%;}
+    .changePassword .fade.in {opacity: 1;background: #121111;margin: 0 auto;height: 75%;top: 17%;}
+} 

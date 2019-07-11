@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Ace2Thee Lobby</title>
+        <link rel="stylesheet" href="css/960.css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="fontface/stylesheet.css">
+        <link rel="stylesheet" href="css/master.css">
+    </head>
+    <body  ng-app="clientLobby" ng-controller="LobbyController as lobby" ng-init="firstName = 'Super Tourney'; lastName = 'Game ID 123';">               
+        <div class="container_12 lobby tab-content acetab">
+            <input type="text" ng-model="lobby.outLander" value="test" ng-click="lobby.testData()">  
+            {{lobby.FilterTypes.POOL.viewAll}}
+            <div class="tab-pane active" id="tab1"> 
+                <!-- Header Start -->
+                <div class="grid_4">
+                    <div class="logo"><img src="images/logo.png" alt="Ace2Three"></div>
+                </div>
+                <div class="grid_4">
+                    <div class="count_bg text-center">
+                        <div class="count_plr_1"> <span class="c_yel">5000 </span> Player </div>
+                        <div class="count_plr_space"> &nbsp;</div>
+                        <div class="count_plr_2" > <span class="c_yel"> 995 </span> Tables </div>
+                    </div>
+                </div>
+                <div class="grid_4">
+                    <div class="date_net"> <img src="images/date_net.png" alt="date Network">
+                        <div class="login_btn">
+                            <!--<img src="images/login_btn.png"  alt="Login">-->
+                            <div class="btn-group">
+                                <button type="button" class="btn lgn_dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span style="width:188px; float:left; font-size:13px;padding-left: 5px;"><span style="font-style:italic">Logged in as </span> <span style="color:#FC0; font-size:15px; font-weight:bold;"> raj4allwwwww</span> </span></button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#"><span><img src="images/demo_icon.png" alt="Watch Demo"></span> My Account</a>
+                                    <a class="dropdown-item" href="#"><span><img src="images/demo_icon.png" alt="Watch Demo"></span> Change Password</a>
+                                    <a class="dropdown-item" href="#"><span><img src="images/demo_icon.png" alt="Watch Demo"></span> Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <!-- Example single danger button -->
+                        <div class="btn-group">
+                            <!--<button type="button" class="btn btn-danger dropdown-toggle" ></button>-->
+                            <img src="images/menu.png" style="cursor:pointer;" alt="Menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#"> <span><img src="images/demo_icon.png" alt="Watch Demo"></span> Watch Demo</a>
+                                <a class="dropdown-item" href="#"> <span><img src="images/refer.png" alt="Refer and Earn"></span> Refer &amp; Earn</a>
+                                <a class="dropdown-item" href="#"> <span><img src="images/demo_icon.png" alt="Watch Demo"></span> Game Rules</a>
+                                <a class="dropdown-item" href="#"> <span><img src="images/demo_icon.png" alt="Watch Demo"></span> Messages</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Header End --> 
+                <!-- Wallet Start -->
+                <div class="grid_12">
+                    <div class="wallet_hdr">
+                        <div class="wallet_1">
+                            <div class="div1">
+                                <div class="acelevel">Ace Points</div>
+                                <div class="acelevel_bar"><img src="images/bonusbar.png"  alt="Bonus Bar"></div>
+                            </div>
+                            <div class="div2">
+                                <div class="realcash"> 500.00 </div>
+                            </div>
+                            <div class="div3"> <a href="#" class="buychips_btn"> &nbsp; </a> </div>
+                            <div class="div4">
+                                <div class="playchips"> 10,000.00 </div>
+                            </div>
+                            <div class="div5">
+                                <div class="bonuspdng_bar"> <img src="images/bonuspending.png"  alt="Bonus Pending"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Wallet End -->
+                <div class="clear"></div>
+                <!-- Lobby Table Start -->
+               
+                <div  class="grid_12">                    
+                    <div class="leftpanel"> <!-- required for floating --> 
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tabs-left ">
+                            <li class="active"><a href="#pointsrummy" data-toggle="tab">
+                                    <div class="playcash" ng-click="lobby.game_info_view = lobby.POOL_GAME">
+                                        <div class="playcash_icon"><img src="images/playcash.png" alt="Play for Cash"></div>
+                                        <div class="playcash_cont">Play for Cash</div>
+                                    </div>
+                                </a></li>
+                            <li><a href="#Tournaments" data-toggle="tab">
+                                    <div class="playcash" ng-click="lobby.game_info_view = lobby.TOURNEY_GAME">
+                                        <div class="playcash_icon"><img src="images/tourney.png"  alt="Tournaments"></div>
+                                        <div class="playcash_cont">Tournaments</div>
+                                    </div>
+                                </a></li>
+                            <li><a href="#Playforfun" data-toggle="tab">
+                                    <div class="playcash" ng-click="lobby.game_info_view = lobby.POOL_GAME">
+                                        <div class="playcash_icon"><img src="images/playforfun.png"  alt="Play for Fun"></div>
+                                        <div class="playcash_cont">Play for Fun</div>
+                                    </div>
+                                </a></li>
+                            <li><a href="#PrivateTables" data-toggle="tab">
+                                    <div class="playcash ">
+                                        <div class="playcash_icon"><img src="images/private_tables.png"  alt="Private Table"></div>
+                                        <div class="playcash_cont">Private Tables</div>
+                                    </div>
+                                </a></li>
+                        </ul>
+                    </div>
+                    <div class="grid_tbl"> 
+                        <!-- Tab panes -->
+                        <div class="tab-content"> 
+
+                            <!-- Play Cash Start -->
+                            <div class="tab-pane active" id="pointsrummy">
+                                <div class="">
+                                    <ul class="nav nav-tabs grid_ul" >
+                                        <li class="active"><a data-toggle="tab" href="#playcash_1" ng-click="lobby.displayGameBasedGrid(lobby.realStake)">Points Rummy</a></li>
+                                        <li><a data-toggle="tab" href="#playcash_2" ng-click="lobby.displayGameBasedGrid(lobby.real201)">201 Pool</a></li>
+                                        <li><a data-toggle="tab" href="#playcash_3" ng-click="lobby.displayGameBasedGrid(lobby.realBOX)">Best X</a></li>
+                                        <li><a data-toggle="tab" href="#playcash_4" ng-click="lobby.displayGameBasedGrid(lobby.real101)">Pool 101</a></li>
+                                    </ul>                                             
+                                    <div class="tab-content tab_color">
+                                        <div id="playcash_1" class="tab-pane fade in active">
+                                            <div class="tbl1">                                                
+                                                <game-definition game-details="lobby.realStakeCollection" game-type="{{lobby.realStake}}" lobby-data="lobby" game-type-code="{{lobby.REAL_STAKE_CODE}}"></game-definition>                                                
+                                            </div>
+                                        </div>
+                                        <div id="playcash_2" class="tab-pane fade">
+                                            <div class="tbl1">                                                
+                                                <game-definition game-details="lobby.real201Collection" game-type="{{lobby.real201}}" lobby-data="lobby" game-type-code="{{lobby.REAL_POOL_CODE}}"></game-definition>                                                
+                                            </div>
+                                        </div>
+                                        <div id="playcash_3" class="tab-pane fade">
+                                            <div class="tbl1">
+                                                <game-definition game-details="lobby.realBOXCollection" game-type="{{lobby.realBOX}}" lobby-data="lobby" game-type-code="{{lobby.REAL_POOL_CODE}}"></game-definition>                                                
+                                            </div>
+                                        </div>
+                                        <div id="playcash_4" class="tab-pane fade">
+                                            <div class="tbl1">                                     
+                                                <game-definition game-details="lobby.real101Collection" game-type="{{lobby.real101}}" lobby-data="lobby" game-type-code="{{lobby.REAL_POOL_CODE}}"></game-definition>                  
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Game Inforamtion Start -->
+                                    <div class="tab_gameinfo">
+                                        <game-information game-categeory="{{lobby.POOL_GAME}}" lobby-data="lobby"></game-information>
+                                    </div>
+                                    <!-- Game Inforamtion End --> 
+                                </div>
+                            </div>
+                            <!-- Play Cash End --> 
+                            <!-- Tournaments Start -->
+                            <div class="tab-pane" id="Tournaments">
+                                <div class="">
+                                    <ul class="nav nav-tabs grid_ul" >
+                                        <li class="active"><a data-toggle="tab" href="#tourney_1">Cash</a></li>
+                                        <li><a data-toggle="tab" href="#tourney_2">Freeroll</a></li>
+                                        <li><a data-toggle="tab" href="#tourney_3">Specail</a></li>
+                                        <li><a data-toggle="tab" href="#tourney_4">Ace Points</a></li>
+                                        <li><a data-toggle="tab" href="#tourney_5">Beginner</a></li>
+                                    </ul>
+                                    <div class="tab-content tab_color">
+                                        <div id="tourney_1" class="tab-pane fade in active">
+                                            <div class="tbl1">
+                                                <game-definition game-details="lobby.cashTourneyCollection" game-type="{{lobby.cashTourney}}" lobby-data="lobby" game-type-code="{{lobby.TOURNEY_CODE}}"></game-definition>                      
+                                            </div>
+                                        </div>
+                                        <div id="tourney_2" class="tab-pane fade">
+                                            <div class="tbl1">
+                                                <game-definition game-details="lobby.freerollTourneyCollection" game-type="{{lobby.freerollTourney}}" lobby-data="lobby" game-type-code="{{lobby.TOURNEY_CODE}}"></game-definition>                      
+                                            </div>
+                                        </div>
+                                        <div id="tourney_3" class="tab-pane fade">
+                                            <div class="tbl1">
+                                                <game-definition game-details="lobby.specialTourneyCollection" game-type="{{lobby.specialTourney}}" lobby-data="lobby" game-type-code="{{lobby.TOURNEY_CODE}}"></game-definition>                      
+                                            </div>
+                                        </div>
+                                        <div id="tourney_4" class="tab-pane fade">
+                                            <div class="tbl1">
+                                                <game-definition game-details="lobby.acePointsTourneyCollection" game-type="{{lobby.acePointsTourney}}" lobby-data="lobby" game-type-code="{{lobby.TOURNEY_CODE}}"></game-definition>                      
+                                            </div>
+                                        </div>
+                                        <div id="tourney_5" class="tab-pane fade">
+                                            <div class="tbl1">
+                                                <game-definition game-details="lobby.beginnerTourneyCollection" game-type="{{lobby.beginnerTourney}}" lobby-data="lobby" game-type-code="{{lobby.TOURNEY_CODE}}"></game-definition>                      
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Game Inforamtion Start -->
+                                    <div class="tab_gameinfo">
+                                        <game-information game-categeory="{{lobby.TOURNEY_GAME}}" lobby-data="lobby"></game-information>
+                                    </div>
+                                    <!-- Game Inforamtion End --> 
+                                </div>
+                            </div>                            
+                            <!-- Tournaments End --> 
+                            <!-- Play for Fun Start -->
+                            <div class="tab-pane" id="Playforfun">
+                                <div class="">
+                                    <ul class="nav nav-tabs grid_ul" >
+                                        <li class="active"><a data-toggle="tab" href="#playfun_1">Points Rummy</a></li>
+                                        <li><a data-toggle="tab" href="#playfun_2">201 Pool</a></li>
+                                        <li><a data-toggle="tab" href="#playfun_3">Best X</a></li>
+                                        <li><a data-toggle="tab" href="#playfun_4">Pool 101</a></li>
+                                    </ul>
+                                    <div class="tab-content tab_color">
+                                        <div id="playfun_1" class="tab-pane fade in active">
+                                            <div class="tbl1">
+                                                 <game-definition game-details="lobby.playStakeCollection" game-type="{{lobby.playStake}}" lobby-data="lobby" game-type-code="{{lobby.PLAY_STAKE_CODE}}"></game-definition>                  
+                                            </div>
+                                        </div>
+                                        <div id="playfun_2" class="tab-pane fade">
+                                            <div class="tbl1">
+                                                 <game-definition game-details="lobby.play201Collection" game-type="{{lobby.play201}}" lobby-data="lobby" game-type-code="{{lobby.PLAY_POOL_CODE}}"></game-definition>                  
+                                            </div>
+                                        </div>
+                                        <div id="playfun_3" class="tab-pane fade">
+                                            <div class="tbl1">
+                                                 <game-definition game-details="lobby.playBOXCollection" game-type="{{lobby.playBOX}}" lobby-data="lobby" game-type-code="{{lobby.PLAY_POOL_CODE}}"></game-definition>                  
+                                            </div>
+                                        </div>
+                                        <div id="playfun_4" class="tab-pane fade">
+                                            <div class="tbl1">                                                
+                                                 <game-definition game-details="lobby.play101Collection" game-type="{{lobby.play101}}" lobby-data="lobby" game-type-code="{{lobby.PLAY_POOL_CODE}}"></game-definition>                  
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Game Inforamtion Start -->
+                                    <div class="tab_gameinfo">
+                                        <game-information game-categeory="{{lobby.POOL_GAME}}" lobby-data="lobby"></game-information>
+                                    </div>
+                                    <!-- Game Inforamtion End --> 
+                                </div>
+                            </div>
+                            <!-- Play for Fun End --> 
+                            <!-- Private Table Start -->
+                            <div class="tab-pane" id="PrivateTables">
+                                <div class="tourney_top">
+                                    <div class="trny_bg1"></div>
+                                    <div class="trny_bg2">Welcome to Priate Tables. Now you can play with your Friends and Family. <a href="#"> Know more &gt; </a> </div>
+                                    <div class="trny_bg3"></div>
+                                </div>
+                                <div class="tab_color2"> </div>
+                                <!-- Game Inforamtion Start -->
+                                <div class="tab_gameinfo">
+                                    <div class="game_1">
+                                        <div class="gameinfo_icon"><img src="images/gameinfo.png"  alt="Game Info"></div>
+                                        <div class="gameinfo_cont"> Game Information</div>
+                                    </div>
+                                    <div class="game_2">
+                                        <table align="center" width="60%">
+                                            <tr>
+                                                <td  width="40%">Bet</td>
+                                                <td width="50%">Players</td>
+                                            </tr>
+                                            <tr class="betregi_clr">
+                                                <td >500</td>
+                                                <td >4 / 6</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="gametype_main">
+                                        <div class="gametype">PR - Joker</div>
+                                        <div class="gametype2">Cash Game - Seating</div>
+                                    </div>
+                                    <div class="game_3">
+                                        <table>
+                                            <tr class="player_id">
+                                                <td>Players</td>
+                                            </tr>
+                                            <tr class="player_td_clr">
+                                                <td>Nagaraju </td>
+                                            </tr>
+                                            <tr class="player_td_clr2">
+                                                <td>Yellaiah</td>
+                                            </tr>
+                                            <tr class="player_td_clr">
+                                                <td>Prasanth</td>
+                                            </tr>
+                                            <tr class="player_td_clr2">
+                                                <td>Deepika</td>
+                                            </tr>
+                                            <tr class="player_td_clr">
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr class="player_td_clr2">
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- Game Inforamtion End --> 
+                            </div>
+                            <!-- Private Table End --> 
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>         
+                <modal-display id="myModal" template-src="lobby_popups.html" lobby-data="lobby"></modal-display>
+                <!--<ace-modal id="verifyMobile" no-footer="true" button-name="Back" title="Verify Mobile"> 
+                    this is to test
+                </ace-modal>-->
+                </div>
+                <!-- Lobby Table End -->
+                <div class="clear"></div>
+                <!-- Lobby Bottom Start -->
+                <div class="grid_12">
+                    <div class="leftpanel_btm">
+                        <div style="padding-top:60px; text-align:left;">Version: 17.0.0</div>
+                    </div>
+                    <div class="grid_tbl_btm">
+                        <div class="left_pan_btm"><img src="images/img1.png" alt="iamge"></div>
+                        <div class="right_pan_btm"><img src="images/img2.png" alt="img"></div>
+                    </div>
+                </div>                
+
+            </div>
+
+            <div class="tab-pane xxx game1" id="game1"><img src="images/game1.png" width="100%" height="685" alt="Game"></div>
+            <div class="tab-pane xxx game2" id="game2"><img src="images/game2.png" width="100%" height="685" alt="Game"></div>
+            <div class="clear"></div>
+
+            <div class="bottom_tab">
+                <ul class="nav nav-tabs " id="tabs">
+                    <li class="active"><a href="#tab1" data-toggle="tab">Lobby</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="scripts/jquery.js"></script> 
+        <script type="text/javascript" src="scripts/tuto_tab_system.js"></script> 
+        <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="scripts/angular.js"></script>
+        <script type="text/javascript" src="scripts/LobbyHandlers.js"></script>
+        <script type="text/javascript" src="scripts/lobby-ctrl.js"></script>
+        <script type="text/javascript" src="scripts/Configuration.js"></script>
+        <script type="text/javascript" src="scripts/BaseClient.js"></script>
+        <script type="text/javascript" src="scripts/ClientListener.js"></script>
+        <script type="text/javascript" src="scripts/LobbyClientListener.js"></script>
+        <script type="text/javascript" src="scripts/handlers/Handler.js"></script>
+        <script type="text/javascript" src="scripts/lobby_services.js"></script>            
+        <script type="text/javascript" src="scripts/GridCollection.js"></script>
+        <script type="text/javascript" src="scripts/GameDefinition.js"></script>
+        <script type="text/javascript" src="scripts/Tournament.js"></script>
+        <script type="text/javascript" src="scripts/TournamentCollection.js"></script>
+        <script type="text/javascript" src="scripts/Level.js"></script>
+        <script type="text/javascript" src="scripts/PlayerVO.js"></script>        
+        <script type="text/javascript" src="scripts/modal-ctrl.js"></script>
+        <script type="text/javascript" src="scripts/ServerProtocolBuilder.js"></script>
+    </body>
+</html>
